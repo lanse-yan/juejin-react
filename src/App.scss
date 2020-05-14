@@ -1,0 +1,41 @@
+@import "./default.scss";
+@import "~antd/dist/antd.css";
+@import "./header/index.scss";
+html {
+  font-size: 12px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica Neue,
+    PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  word-break: break-word;
+  text-rendering: optimizeLegibility;
+  color: #333;
+  background-color: #f4f5f5;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
+}
+.#{$ant-prefix}-menu-horizontal {
+  display: flex;
+  line-height: normal;
+  .#{$ant-prefix}-menu-item {
+    display: flex;
+    border-bottom: none !important;
+  }
+}
+.#{$ant-prefix}-menu-item {
+  padding: 0 1.5rem;
+  height: 5rem;
+  color: #71777c;
+  font-size: 1.33rem;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:hover {
+    border-bottom: none;
+  }
+}
