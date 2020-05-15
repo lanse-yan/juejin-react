@@ -2,6 +2,7 @@ import React from "react";
 // import logo from "./logo.svg";
 import "./App.scss";
 import Header from "./header";
+import Home from "./home";
 import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
           <div className="main-header-box">
             <Header />
           </div>
-          <div className="container main-container"></div>
+          <div className="container main-container">
+            <Home />
+          </div>
         </div>
       </Router>
     </>

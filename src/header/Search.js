@@ -3,16 +3,14 @@ import { Input } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 function App() {
   return (
-    <>
-      <div className="search">
-        <Input
-          placeholder="搜索掘金"
-          suffix={<SearchOutlined />}
-          className="search-input"
-          size="middle"
-        />
-      </div>
-    </>
+    <div className="nav-item search">
+      <Input
+        placeholder="搜索掘金"
+        suffix={<SearchOutlined />}
+        className="search-input"
+        size="middle"
+      />
+    </div>
   );
 }
 

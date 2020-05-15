@@ -1,10 +1,10 @@
 import React from "react";
-import { Layout, Menu } from "antd";
+import { Menu } from "antd";
 import { Link } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <div className="nav-item">
       <Menu mode="horizontal" selectedKeys="home">
         <Menu.Item key="home">
           <Link to="/">首页</Link>
@@ -22,7 +22,7 @@ function App() {
           <Link to="/">活动</Link>
         </Menu.Item>
       </Menu>
-    </>
+    </div>
   );
 }
 
