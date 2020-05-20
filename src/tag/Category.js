@@ -2,16 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Menu, Popover } from "antd";
 import { Link } from "react-router-dom";
 import api from "../api/category";
-import Tags from "./tags";
+import Tags from "./Tags";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { fetchCategoryList, fetchTagList } from "./redux/action";
 
-function App() {
-  const [categoryList, setCategoryList] = useState([]);
-
+function App({ categoryList }) {
   // 只需要再mount的时候执行一次即可，不依赖prop或state
   useEffect(() => {
-    api.categories().then(({ d }) => {
-      setCategoryList(d.categoryList);
-    });
+    fetchCategoryList();
   }, []);
 
   return (
@@ -41,4 +40,14 @@ function App() {
   );
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    categoryList: state.tag.categoryItems,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchCategoryList }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
