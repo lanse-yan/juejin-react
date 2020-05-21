@@ -1,5 +1,7 @@
 const initialState = {
   categoryItems: [],
-  tagItems: [],
+  tagItems: {},
+  currentCategory: null,
+  currentTag: null,
 };
 export default initialState;

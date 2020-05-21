@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from "react";
-import api from "../api/category";
+import React, { useEffect } from "react";
 import { Tag } from "antd";
+import { fetchTagList } from "./redux/action";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { Link } from "react-router-dom";
 
 export function Tags({ tagList }) {
   return (
@@ -12,14 +15,20 @@ export function Tags({ tagList }) {
   );
 }
 
-function App({ categoryId }) {
-  const [tagList, setTagList] = useState([]);
+function App({ tagList, fetchTagList, categoryId }) {
   useEffect(() => {
-    api.tags(categoryId).then((resp) => {
-      setTagList(resp.data);
-    });
-  }, [categoryId]);
-  return <Tags tagList={tagList} />;
+    fetchTagList(categoryId);
+  }, [categoryId, fetchTagList]);
+  return <Tags tagList={tagList[categoryId] || []} />;
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    tagList: state.tag.tagItems,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchTagList }, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);
