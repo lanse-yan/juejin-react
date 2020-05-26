@@ -2,6 +2,9 @@
 @import "~antd/dist/antd.css";
 @import "./header/index.scss";
 @import "./tag/index.scss";
+@import "./articles/index.scss";
+@import "./home/index.scss";
+@import "./aside/index.scss";
 html {
   font-size: 12px;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica Neue,
@@ -9,6 +12,10 @@ html {
   word-break: break-word;
   text-rendering: optimizeLegibility;
   color: #333;
+  background-color: #f4f5f5;
+}
+
+body {
   background-color: #f4f5f5;
 }
 
